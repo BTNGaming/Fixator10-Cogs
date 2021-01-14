@@ -2539,9 +2539,9 @@ class Leveler(commands.Cog):
     async def draw_profile(self, user, server):
         if not self._db_ready:
             return
-        font_thin_file = f"{bundled_data_path(self)}/Uni_Sans_Thin.ttf"
+        font_thin_file = f"{bundled_data_path(self)}/Ubuntu-B_0.ttf"
         font_heavy_file = f"{bundled_data_path(self)}/Uni_Sans_Heavy.ttf"
-        font_file = f"{bundled_data_path(self)}/Ubuntu-R_0.ttf"
+        font_file = f"{bundled_data_path(self)}/Ubuntu-B_0.ttf"
         font_bold_file = f"{bundled_data_path(self)}/Ubuntu-B_0.ttf"
 
         name_fnt = ImageFont.truetype(font_heavy_file, 30)
@@ -2550,10 +2550,10 @@ class Leveler(commands.Cog):
         title_u_fnt = ImageFont.truetype(self.font_unicode_file, 23)
         label_fnt = ImageFont.truetype(font_bold_file, 18)
         exp_fnt = ImageFont.truetype(font_bold_file, 13)
-        large_fnt = ImageFont.truetype(font_bold_file, 33)
+        large_fnt = ImageFont.truetype(font_thin_file, 33)
         rep_fnt = ImageFont.truetype(font_heavy_file, 26)
         rep_u_fnt = ImageFont.truetype(self.font_unicode_file, 30)
-        text_fnt = ImageFont.truetype(font_bold_file, 14)
+        text_fnt = ImageFont.truetype(font_file, 14)
         text_u_fnt = ImageFont.truetype(self.font_unicode_file, 14)
         symbol_u_fnt = ImageFont.truetype(self.font_unicode_file, 15)
 
@@ -3130,7 +3130,7 @@ class Leveler(commands.Cog):
 
         # draw text
         grey_color = (100, 100, 100, 255)
-        white_color = (255, 25, 0, 255)
+        white_color = (255, 80, 0, 255)
 
         # name
         await _write_unicode(
