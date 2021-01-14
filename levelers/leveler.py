@@ -2719,8 +2719,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Exp
         draw.text(
-            (await self._center(200, 340, "Computers", label_fnt), label_align),
-            "Computers",
+            (await self._center(200, 340, "", label_fnt), label_align),
+            "",
             font=label_fnt,
             fill=info_text_color,
         )  # Credits
@@ -3200,7 +3200,7 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Level
         bank_credits = await bank.get_balance(user)
-        credit_txt = f"Overkill"
+        credit_txt = f""
         draw.text(
             (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
             credit_txt,
