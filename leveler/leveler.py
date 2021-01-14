@@ -44,7 +44,7 @@ try:
 except Exception as e:
     raise RuntimeError(f"Can't load pillow: {e}\nDo '[p]pipinstall pillow'.")
 
-log = logging.getLogger("red.fixator10-cogs.leveler")
+log = logging.getLogger("red.fixator10-cogs.levelers")
 
 
 AVATAR_FORMAT = "webp" if pil_features.check("webp_anim") else "jpg"
@@ -75,7 +75,7 @@ class Levelers(commands.Cog):
             "port": 27017,
             "username": None,
             "password": None,
-            "db_name": "leveler",
+            "db_name": "levelers",
         }
         default_global = {
             "bg_price": 0,
@@ -160,7 +160,7 @@ class Levelers(commands.Cog):
             self.client.close()
 
     async def cog_check(self, ctx):
-        if (ctx.command.parent is self.levelerset) or ctx.command is self.levelerset:
+        if (ctx.command.parent is self.levelersset) or ctx.command is self.levelersset:
             return True
         return self._db_ready
 
@@ -558,7 +558,7 @@ class Levelers(commands.Cog):
 
     @checks.is_owner()
     @commands.group()
-    async def levelerset(self, ctx):
+    async def levelersset(self, ctx):
         """
         MongoDB server configuration options.
 
@@ -572,7 +572,7 @@ class Levelers(commands.Cog):
             ]
             await ctx.send(box(tabulate(settings, tablefmt="plain")))
 
-    @levelerset.command()
+    @levelersset.command()
     async def host(self, ctx, host: str = "localhost"):
         """Set the MongoDB server host."""
         await self.config.custom("MONGODB").host.set(host)
@@ -589,7 +589,7 @@ class Levelers(commands.Cog):
             content=message.content.replace("Now trying to connect to the new host...", "")
         )
 
-    @levelerset.command()
+    @levelersset.command()
     async def port(self, ctx, port: int = 27017):
         """Set the MongoDB server port."""
         await self.config.custom("MONGODB").port.set(port)
@@ -606,7 +606,7 @@ class Levelers(commands.Cog):
             content=message.content.replace("Now trying to connect to the new port...", "")
         )
 
-    @levelerset.command(aliases=["creds"])
+    @levelersset.command(aliases=["creds"])
     async def credentials(self, ctx, username: str = None, password: str = None):
         """Set the MongoDB server credentials."""
         await self.config.custom("MONGODB").username.set(username)
@@ -620,8 +620,8 @@ class Levelers(commands.Cog):
             )
         await message.edit(content=message.content.replace("Now trying to connect...", ""))
 
-    @levelerset.command()
-    async def dbname(self, ctx, dbname: str = "leveler"):
+    @levelersset.command()
+    async def dbname(self, ctx, dbname: str = "levelers"):
         """Set the MongoDB db name."""
         await self.config.custom("MONGODB").db_name.set(dbname)
         message = await ctx.send("MongoDB db name set.\nNow trying to connect...")
@@ -1438,7 +1438,7 @@ class Levelers(commands.Cog):
     @lvladmin.command()
     @commands.guild_only()
     async def toggle(self, ctx):
-        """Toggle most leveler commands on the current server."""
+        """Toggle most levelers commands on the current server."""
         server = ctx.guild
         if await self.config.guild(server).disabled():
             await self.config.guild(server).disabled.set(False)
@@ -3403,7 +3403,7 @@ class Levelers(commands.Cog):
                 {"user_id": str(user.id)},
                 {"$set": {"total_exp": userinfo["total_exp"] + exp}},
             )
-            self.bot.dispatch("leveler_process_exp", message, exp)
+            self.bot.dispatch("levelers_process_exp", message, exp)
         except Exception as exc:
             log.error(f"Unable to process xp for {user.id}: {exc}")
         if userinfo["servers"][str(server.id)]["current_exp"] + exp >= required:
@@ -3458,7 +3458,7 @@ class Levelers(commands.Cog):
             name = "You"
 
         new_level = str(userinfo["servers"][str(server.id)]["level"])
-        self.bot.dispatch("leveler_levelup", user, new_level)
+        self.bot.dispatch("levelers_levelup", user, new_level)
         # add to appropriate role if necessary
         # try:
         server_roles = await self.db.roles.find_one({"server_id": str(server.id)})
