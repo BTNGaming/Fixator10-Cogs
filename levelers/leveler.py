@@ -3130,7 +3130,7 @@ class Leveler(commands.Cog):
 
         # draw text
         grey_color = (100, 100, 100, 255)
-        white_color = (255, 80, 0, 255)
+        white_color = (255, 25, 0, 255)
 
         # name
         await _write_unicode(
