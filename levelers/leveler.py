@@ -2544,7 +2544,7 @@ class Leveler(commands.Cog):
         font_file = f"{bundled_data_path(self)}/Ubuntu-R_0.ttf"
         font_bold_file = f"{bundled_data_path(self)}/Ubuntu-B_0.ttf"
 
-        name_fnt = ImageFont.truetype(font_heavy_file, 30)
+        name_fnt = ImageFont.truetype(font_heavy_file, 26)
         name_u_fnt = ImageFont.truetype(self.font_unicode_file, 30)
         title_fnt = ImageFont.truetype(font_heavy_file, 22)
         title_u_fnt = ImageFont.truetype(self.font_unicode_file, 23)
@@ -3143,7 +3143,7 @@ class Leveler(commands.Cog):
         )  # Name
 
         # labels
-        v_label_align = 75
+        v_label_align = 55
         info_text_color = white_color
         draw.text(
             (await self._center(100, 200, "  RANK", label_fnt), v_label_align),
