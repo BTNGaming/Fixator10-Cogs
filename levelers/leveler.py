@@ -2550,10 +2550,10 @@ class Leveler(commands.Cog):
         title_u_fnt = ImageFont.truetype(self.font_unicode_file, 23)
         label_fnt = ImageFont.truetype(font_bold_file, 18)
         exp_fnt = ImageFont.truetype(font_bold_file, 13)
-        large_fnt = ImageFont.truetype(font_thin_file, 33)
+        large_fnt = ImageFont.truetype(font_bold_file, 33)
         rep_fnt = ImageFont.truetype(font_heavy_file, 26)
         rep_u_fnt = ImageFont.truetype(self.font_unicode_file, 30)
-        text_fnt = ImageFont.truetype(font_file, 14)
+        text_fnt = ImageFont.truetype(font_bold_file, 14)
         text_u_fnt = ImageFont.truetype(self.font_unicode_file, 14)
         symbol_u_fnt = ImageFont.truetype(self.font_unicode_file, 15)
 
