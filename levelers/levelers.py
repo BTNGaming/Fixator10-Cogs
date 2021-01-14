@@ -44,7 +44,7 @@ try:
 except Exception as e:
     raise RuntimeError(f"Can't load pillow: {e}\nDo '[p]pipinstall pillow'.")
 
-log = logging.getLogger("red.fixator10-cogs.levelers")
+log = logging.getLogger("red.fixator10-cogs.leveler")
 
 
 AVATAR_FORMAT = "webp" if pil_features.check("webp_anim") else "jpg"
@@ -56,7 +56,7 @@ async def non_global_bank(ctx):
     return not await bank.is_global()
 
 
-class Levelers(commands.Cog):
+class Leveler(commands.Cog):
     """A level up thing with image generation!"""
 
     __version__ = "2.1.4b"
@@ -75,7 +75,7 @@ class Levelers(commands.Cog):
             "port": 27017,
             "username": None,
             "password": None,
-            "db_name": "levelers",
+            "db_name": "leveler",
         }
         default_global = {
             "bg_price": 0,
@@ -160,7 +160,7 @@ class Levelers(commands.Cog):
             self.client.close()
 
     async def cog_check(self, ctx):
-        if (ctx.command.parent is self.levelersset) or ctx.command is self.levelersset:
+        if (ctx.command.parent is self.levelerset) or ctx.command is self.levelerset:
             return True
         return self._db_ready
 
@@ -189,7 +189,7 @@ class Levelers(commands.Cog):
 
         # check if disabled
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         # no cooldown for text only
@@ -261,7 +261,7 @@ class Levelers(commands.Cog):
 
         # check if disabled
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         # no cooldown for text only
@@ -311,7 +311,7 @@ class Levelers(commands.Cog):
         user = ctx.author
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         async with ctx.typing():
@@ -452,7 +452,7 @@ class Levelers(commands.Cog):
         curr_time = time.time()
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
         if user and user.id == org_user.id:
             await ctx.send("**You can't give a rep to yourself!**")
@@ -505,7 +505,7 @@ class Levelers(commands.Cog):
         userinfo = await self.db.users.find_one({"user_id": str(user.id)})
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         # creates user if doesn't exist
@@ -563,7 +563,7 @@ class Levelers(commands.Cog):
 
     @checks.is_owner()
     @commands.group()
-    async def levelersset(self, ctx):
+    async def levelerset(self, ctx):
         """
         MongoDB server configuration options.
 
@@ -577,7 +577,7 @@ class Levelers(commands.Cog):
             ]
             await ctx.send(box(tabulate(settings, tablefmt="plain")))
 
-    @levelersset.command()
+    @levelerset.command()
     async def host(self, ctx, host: str = "localhost"):
         """Set the MongoDB server host."""
         await self.config.custom("MONGODB").host.set(host)
@@ -594,7 +594,7 @@ class Levelers(commands.Cog):
             content=message.content.replace("Now trying to connect to the new host...", "")
         )
 
-    @levelersset.command()
+    @levelerset.command()
     async def port(self, ctx, port: int = 27017):
         """Set the MongoDB server port."""
         await self.config.custom("MONGODB").port.set(port)
@@ -611,7 +611,7 @@ class Levelers(commands.Cog):
             content=message.content.replace("Now trying to connect to the new port...", "")
         )
 
-    @levelersset.command(aliases=["creds"])
+    @levelerset.command(aliases=["creds"])
     async def credentials(self, ctx, username: str = None, password: str = None):
         """Set the MongoDB server credentials."""
         await self.config.custom("MONGODB").username.set(username)
@@ -625,8 +625,8 @@ class Levelers(commands.Cog):
             )
         await message.edit(content=message.content.replace("Now trying to connect...", ""))
 
-    @levelersset.command()
-    async def dbname(self, ctx, dbname: str = "levelers"):
+    @levelerset.command()
+    async def dbname(self, ctx, dbname: str = "leveler"):
         """Set the MongoDB db name."""
         await self.config.custom("MONGODB").db_name.set(dbname)
         message = await ctx.send("MongoDB db name set.\nNow trying to connect...")
@@ -680,7 +680,7 @@ class Levelers(commands.Cog):
         default_a = 200
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -824,7 +824,7 @@ class Levelers(commands.Cog):
         default_a = 200
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -939,7 +939,7 @@ class Levelers(commands.Cog):
         default_a = 200
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -1057,7 +1057,7 @@ class Levelers(commands.Cog):
         max_char = 150
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if len(info) < max_char:
@@ -1081,7 +1081,7 @@ class Levelers(commands.Cog):
         await self._create_user(user, server)
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -1111,7 +1111,7 @@ class Levelers(commands.Cog):
         await self._create_user(user, server)
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -1141,7 +1141,7 @@ class Levelers(commands.Cog):
         await self._create_user(user, server)
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("Levelers commands for this server are disabled.")
+            await ctx.send("Leveler commands for this server are disabled.")
             return
 
         if await self.config.guild(ctx.guild).text_only():
@@ -1172,7 +1172,7 @@ class Levelers(commands.Cog):
         max_char = 20
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         if len(title) < max_char:
@@ -1350,7 +1350,7 @@ class Levelers(commands.Cog):
         userinfo = await self.db.users.find_one({"user_id": str(user.id)})
 
         if await self.config.guild(ctx.guild).disabled():
-            await ctx.send("Levelers commands for this server are disabled.")
+            await ctx.send("Leveler commands for this server are disabled.")
             return
 
         if level < 0:
@@ -1443,14 +1443,14 @@ class Levelers(commands.Cog):
     @lvladmin.command()
     @commands.guild_only()
     async def toggle(self, ctx):
-        """Toggle most levelers commands on the current server."""
+        """Toggle most leveler commands on the current server."""
         server = ctx.guild
         if await self.config.guild(server).disabled():
             await self.config.guild(server).disabled.set(False)
-            await ctx.send("**Levelers enabled on `{}`.**".format(server.name))
+            await ctx.send("**Leveler enabled on `{}`.**".format(server.name))
         else:
             await self.config.guild(server).disabled.set(True)
-            await ctx.send("**Levelers disabled on `{}`.**".format(server.name))
+            await ctx.send("**Leveler disabled on `{}`.**".format(server.name))
 
     @checks.admin_or_permissions(manage_guild=True)
     @lvladmin.command()
@@ -1781,7 +1781,7 @@ class Levelers(commands.Cog):
         `border_color`: Indicate color of the badge's border. (HEX color)
         `price`: Indicate the badge's price. (Indicate `-1` and it won't be purchasable, `0` for free.)
         `description`: Indicate a description for your badge.
-        eg: `[p]lvlset badge add Levelers [my_url] #b60047 0 My super badge!`
+        eg: `[p]lvlset badge add Leveler [my_url] #b60047 0 My super badge!`
 
         If you are the bot owner, you can `-global` to the description to make the badge available everywhere."""
 
@@ -1923,7 +1923,7 @@ class Levelers(commands.Cog):
         await self._create_user(user, server)
 
         if await self.config.guild(server).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         serverbadges = await self.db.badges.find_one({"server_id": str(serverid)})
@@ -1972,7 +1972,7 @@ class Levelers(commands.Cog):
         userinfo = await self._badge_convert_dict(userinfo)
 
         if await self.config.guild(server).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         serverbadges = await self.db.badges.find_one({"server_id": str(server.id)})
@@ -2013,7 +2013,7 @@ class Levelers(commands.Cog):
         userinfo = await self._badge_convert_dict(userinfo)
 
         if await self.config.guild(server).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         serverbadges = await self.db.badges.find_one({"server_id": str(server.id)})
@@ -2381,7 +2381,7 @@ class Levelers(commands.Cog):
         backgrounds = await self.config.backgrounds()
 
         if await self.config.guild(server).disabled():
-            await ctx.send("**Levelers commands for this server are disabled!**")
+            await ctx.send("**Leveler commands for this server are disabled!**")
             return
 
         em = discord.Embed(colour=await ctx.embed_color())
@@ -3408,7 +3408,7 @@ class Levelers(commands.Cog):
                 {"user_id": str(user.id)},
                 {"$set": {"total_exp": userinfo["total_exp"] + exp}},
             )
-            self.bot.dispatch("levelers_process_exp", message, exp)
+            self.bot.dispatch("leveler_process_exp", message, exp)
         except Exception as exc:
             log.error(f"Unable to process xp for {user.id}: {exc}")
         if userinfo["servers"][str(server.id)]["current_exp"] + exp >= required:
@@ -3463,7 +3463,7 @@ class Levelers(commands.Cog):
             name = "You"
 
         new_level = str(userinfo["servers"][str(server.id)]["level"])
-        self.bot.dispatch("levelers_levelup", user, new_level)
+        self.bot.dispatch("leveler_levelup", user, new_level)
         # add to appropriate role if necessary
         # try:
         server_roles = await self.db.roles.find_one({"server_id": str(server.id)})
