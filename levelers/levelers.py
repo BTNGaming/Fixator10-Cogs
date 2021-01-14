@@ -2734,8 +2734,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Exp
         draw.text(
-            (await self._center(200, 340, "BALANCE", label_fnt), label_align),
-            "BALANCE",
+            (await self._center(200, 340, "hgfdhgfdhdf", label_fnt), label_align),
+            "gfdsgfds",
             font=label_fnt,
             fill=info_text_color,
         )  # Credits
@@ -3173,8 +3173,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Rank
         draw.text(
-            (await self._center(260, 360, "BALANCE", label_fnt), v_label_align),
-            "BALANCE",
+            (await self._center(260, 360, "6yhnb", label_fnt), v_label_align),
+            "4rfhjhg",
             font=label_fnt,
             fill=info_text_color,
         )  # Rank
