@@ -85,12 +85,12 @@ class Leveler(commands.Cog):
             "mention": True,
             "backgrounds": {
                 "profile": {
-                    "default": "https://imgur.com/zm9pg9x",
+                    "default": "https://imgur.com/zm9pg9x.jpg",
                 },
                 "rank": {
-                    "default": "https://imgur.com/GsS1wob",
+                    "default": "https://imgur.com/GsS1wob.jpg",
                 },
-                "levelup": {"default": "http://i.imgur.com/eEFfKqa.jpg"},
+                "levelup": {"default": "https://imgur.com/zm9pg9x.jpg"},
             },
         }
         default_guild = {
