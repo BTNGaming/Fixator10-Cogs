@@ -2705,21 +2705,21 @@ class Leveler(commands.Cog):
             fill=rep_fill,
         )  # Exp Text
 
-        label_align = 200  # vertical
+        label_align = 362  # vertical
         draw.text(
-            (await self._center(0, 140, "    RANK", label_fnt), label_align),
+            (await self._center(0, 100, "    RANK", label_fnt), label_align),
             "    RANK",
             font=label_fnt,
             fill=info_text_color,
         )  # Rank
         draw.text(
-            (await self._center(0, 340, "    LEVEL", label_fnt), label_align),
+            (await self._center(0, 300, "    LEVEL", label_fnt), label_align),
             "    LEVEL",
             font=label_fnt,
             fill=info_text_color,
         )  # Exp
         draw.text(
-            (await self._center(200, 340, "Computers", label_fnt), label_align),
+            (await self._center(200, 300, "Computers", label_fnt), label_align),
             "Computers",
             font=label_fnt,
             fill=info_text_color,
