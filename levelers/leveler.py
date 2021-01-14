@@ -3015,7 +3015,7 @@ class Leveler(commands.Cog):
         name_u_fnt = ImageFont.truetype(self.font_unicode_file, 24)
         label_fnt = ImageFont.truetype(font_bold_file, 16)
         exp_fnt = ImageFont.truetype(font_bold_file, 9)
-        large_fnt = ImageFont.truetype(font_bold_file, 24)
+        large_fnt = ImageFont.truetype(font_heavy_file, 24)
         symbol_u_fnt = ImageFont.truetype(self.font_unicode_file, 15)
 
         async def _write_unicode(text, init_x, y, font, unicode_font, fill):
