@@ -2577,7 +2577,7 @@ class Leveler(commands.Cog):
         bg_url = userinfo["profile_background"]
 
         # COLORS
-        white_color = (240, 240, 240, 255)
+        white_color = (35, 35, 35, 255)
         if "rep_color" not in userinfo.keys() or not userinfo["rep_color"]:
             rep_fill = (92, 130, 203, 230)
         else:
@@ -3130,7 +3130,7 @@ class Leveler(commands.Cog):
 
         # draw text
         grey_color = (100, 100, 100, 255)
-        white_color = (220, 220, 220, 255)
+        white_color = (35, 35, 35, 255)
 
         # name
         await _write_unicode(
