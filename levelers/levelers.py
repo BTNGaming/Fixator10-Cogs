@@ -2734,8 +2734,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Exp
         draw.text(
-            (await self._center(200, 340, "hgfdhgfdhdf", label_fnt), label_align),
-            "gfdsgfds",
+            (await self._center(200, 340, "BALANCE", label_fnt), label_align),
+            "BALANCE",
             font=label_fnt,
             fill=info_text_color,
         )  # Credits
@@ -2794,7 +2794,7 @@ class Leveler(commands.Cog):
         )  # Exp Text
 
         bank_credits = await bank.get_balance(user)
-        credit_txt = "TEST"
+        credit_txt = f"{bank_credits}{(await bank.get_currency_name(server))[0]}"
         draw.text(
             (await self._center(200, 340, credit_txt, large_fnt), label_align - 27),
             credit_txt,
@@ -3173,8 +3173,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Rank
         draw.text(
-            (await self._center(260, 360, "6yhnb", label_fnt), v_label_align),
-            "4rfhjhg",
+            (await self._center(260, 360, "BALANCE", label_fnt), v_label_align),
+            "BALANCE",
             font=label_fnt,
             fill=info_text_color,
         )  # Rank
@@ -3214,15 +3214,15 @@ class Leveler(commands.Cog):
             font=large_fnt,
             fill=info_text_color,
         )  # Level
-        bank_credits = await bank.get_balance(user)
-        credit_txt = f"TEST"
+        bank_credits = "TEST
+        credit_txt = f"{bank_credits}{(await bank.get_currency_name(server))[0]}"
         draw.text(
             (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
             credit_txt,
             font=large_fnt,
             fill=info_text_color,
         )  # Balance
-        exp_text = "TEST2"
+        exp_text = "{}/{}".format(exp_frac, exp_total)
         draw.text(
             (await self._center(80, 360, exp_text, exp_fnt), 19),
             exp_text,
