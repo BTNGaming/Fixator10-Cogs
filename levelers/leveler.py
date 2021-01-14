@@ -2665,7 +2665,7 @@ class Leveler(commands.Cog):
 
         # write label text
         white_color = (35, 35, 35, 255)
-        light_color = (160, 160, 160, 255)
+        light_color = (35, 35, 35, 255)
         dark_color = (35, 35, 35, 255)
 
         head_align = 140
