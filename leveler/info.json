@@ -3,11 +3,11 @@
     "Fixator10",
     "Stevy"
   ],
-  "install_msg": "**Port of Leveler by AznStevy to V3.**\n⚠ Warning: this cog not tested fully and may be unstable, including existing database corruption.\nFor more information about installing, please reffer to this: https://github.com/fixator10/Fixator10-Cogs/wiki/Installing-Leveler",
+  "install_msg": "**Re-Design Version 1.02 bt BTNGaming**\n⚠ Warning: This is just a TEST version of the leveling script",
   "short": "Level/Experience tracker",
   "description": "Level/Experience tracker\nIncrease activity (or not) on your server with chat exp!",
   "tags": [
-    "leveler",
+    "levelers",
     "v2 cog"
   ],
   "min_bot_version": "3.3.6",

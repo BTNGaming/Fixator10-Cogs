@@ -1,7 +1,7 @@
-from .leveler import Leveler
+from .leveler import Levelers
 
 
 async def setup(bot):
-    cog = Leveler(bot)
+    cog = Levelers(bot)
     bot.add_cog(cog)
     await cog.initialize()
