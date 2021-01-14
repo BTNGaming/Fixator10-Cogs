@@ -3199,8 +3199,8 @@ class Leveler(commands.Cog):
             font=large_fnt,
             fill=info_text_color,
         )  # Level
-         bank_credits = await bank.get_balance(user)
-         credit_txt = f"Overkill"
+        bank_credits = await bank.get_balance(user)
+        credit_txt = f"Overkill"
         draw.text(
             (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
             credit_txt,
