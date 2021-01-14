@@ -2664,7 +2664,7 @@ class Leveler(commands.Cog):
         process.paste(profile_image, (circle_left + border, circle_top + border), mask)
 
         # write label text
-        white_color = (240, 240, 240, 255)
+        white_color = (35, 35, 35, 255)
         light_color = (160, 160, 160, 255)
         dark_color = (35, 35, 35, 255)
 
