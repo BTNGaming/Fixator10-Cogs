@@ -226,6 +226,11 @@ class Levelers(commands.Cog):
         )
         em.add_field(name="Total Exp:", value=userinfo["total_exp"])
         em.add_field(name="Server Exp:", value=await self._find_server_exp(user, server))
+        u_credits = await bank.get_balance(user)
+        em.add_field(
+            name="Credits:",
+            value=f"{u_credits}{(await bank.get_currency_name(server))[0]}",
+        )
         em.add_field(name="Info:", value=userinfo["info"] or None)
         em.add_field(
             name="Badges:",
