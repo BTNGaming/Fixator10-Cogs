@@ -91,7 +91,7 @@ class Leveler(commands.Cog):
                     "lamp": "http://i.imgur.com/0nQSmKX.jpg",
                     "coastline": "http://i.imgur.com/XzUtY47.jpg",
                     "redblack": "http://i.imgur.com/74J2zZn.jpg",
-                    "default": "http://i.imgur.com/8T1FUP5.jpg",
+                    "default": "https://imgur.com/zm9pg9x",
                     "iceberg": "http://i.imgur.com/8KowiMh.png",
                     "miraiglasses": "http://i.imgur.com/2Ak5VG3.png",
                     "miraikuriyama": "http://i.imgur.com/jQ4s4jj.png",
@@ -100,7 +100,7 @@ class Leveler(commands.Cog):
                 },
                 "rank": {
                     "aurora": "http://i.imgur.com/gVSbmYj.jpg",
-                    "default": "http://i.imgur.com/SorwIrc.jpg",
+                    "default": "https://imgur.com/GsS1wob",
                     "nebula": "http://i.imgur.com/V5zSCmO.jpg",
                     "mountain": "http://i.imgur.com/qYqEUYp.jpg",
                     "city": "http://i.imgur.com/yr2cUM9.jpg",
