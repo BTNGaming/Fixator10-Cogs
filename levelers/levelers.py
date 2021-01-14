@@ -2794,7 +2794,7 @@ class Leveler(commands.Cog):
         )  # Exp Text
 
         bank_credits = await bank.get_balance(user)
-        credit_txt = f"{bank_credits}{(await bank.get_currency_name(server))[0]}"
+        credit_txt = "TEST"
         draw.text(
             (await self._center(200, 340, credit_txt, large_fnt), label_align - 27),
             credit_txt,
