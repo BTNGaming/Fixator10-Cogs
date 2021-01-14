@@ -3222,7 +3222,7 @@ class Leveler(commands.Cog):
             font=large_fnt,
             fill=info_text_color,
         )  # Balance
-        exp_text = "{}/{}".format(exp_frac, exp_total)
+        exp_text = "TEST2"
         draw.text(
             (await self._center(80, 360, exp_text, exp_fnt), 19),
             exp_text,
