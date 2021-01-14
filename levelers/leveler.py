@@ -3173,8 +3173,8 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Rank
         draw.text(
-            (await self._center(260, 360, "BALANCE", label_fnt), v_label_align),
-            "BALANCE",
+            (await self._center(260, 360, "Computers", label_fnt), v_label_align),
+            "Computers",
             font=label_fnt,
             fill=info_text_color,
         )  # Rank
