@@ -2785,7 +2785,7 @@ class Leveler(commands.Cog):
             [(0, 305), (bar_length, 323)],
             fill=(exp_fill[0], exp_fill[1], exp_fill[2], 255),
         )  # box
-        exp_text = "{}/{}".format(exp_frac, exp_total)  # Exp
+        exp_text = "Cookies".format(exp_frac, exp_total)  # Exp
         draw.text(
             (await self._center(0, 340, exp_text, exp_fnt), 305),
             exp_text,
@@ -3222,7 +3222,7 @@ class Leveler(commands.Cog):
             font=large_fnt,
             fill=info_text_color,
         )  # Balance
-        exp_text = "{}/{}".format(exp_frac, exp_total)
+        exp_text = "Nutty Bar".format(exp_frac, exp_total)
         draw.text(
             (await self._center(80, 360, exp_text, exp_fnt), 19),
             exp_text,
