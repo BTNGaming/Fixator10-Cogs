@@ -2785,7 +2785,7 @@ class Leveler(commands.Cog):
             [(0, 305), (bar_length, 323)],
             fill=(exp_fill[0], exp_fill[1], exp_fill[2], 255),
         )  # box
-        exp_text = "Cookies".format(exp_frac, exp_total)  # Exp
+        exp_text = "{}/{}".format(exp_frac, exp_total)  # Exp
         draw.text(
             (await self._center(0, 340, exp_text, exp_fnt), 305),
             exp_text,
@@ -3215,14 +3215,14 @@ class Leveler(commands.Cog):
             fill=info_text_color,
         )  # Level
         bank_credits = await bank.get_balance(user)
-        credit_txt = f"{bank_credits}{(await bank.get_currency_name(server))[0]}"
+        credit_txt = f"TESTEEZ"
         draw.text(
             (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
             credit_txt,
             font=large_fnt,
             fill=info_text_color,
         )  # Balance
-        exp_text = "Nutty Bar".format(exp_frac, exp_total)
+        exp_text = "{}/{}".format(exp_frac, exp_total)
         draw.text(
             (await self._center(80, 360, exp_text, exp_fnt), 19),
             exp_text,
