@@ -2545,7 +2545,7 @@ class Leveler(commands.Cog):
         font_bold_file = f"{bundled_data_path(self)}/Ubuntu-B_0.ttf"
 
         name_fnt = ImageFont.truetype(font_heavy_file, 26)
-        name_u_fnt = ImageFont.truetype(self.font_unicode_file, 30)
+        name_u_fnt = ImageFont.truetype(self.font_unicode_file, 26)
         title_fnt = ImageFont.truetype(font_heavy_file, 22)
         title_u_fnt = ImageFont.truetype(self.font_unicode_file, 23)
         label_fnt = ImageFont.truetype(font_bold_file, 18)
@@ -3187,14 +3187,14 @@ class Leveler(commands.Cog):
         # userinfo
         server_rank = "#{}".format(await self._find_server_rank(user, server))
         draw.text(
-            (await self._center(100, 200, server_rank, large_fnt), v_label_align - 40),
+            (await self._center(100, 200, server_rank, large_fnt), v_label_align - 10),
             server_rank,
             font=large_fnt,
             fill=info_text_color,
         )  # Rank
         level_text = "{}".format(userinfo["servers"][str(server.id)]["level"])
         draw.text(
-            (await self._center(95, 360, level_text, large_fnt), v_label_align - 40),
+            (await self._center(95, 360, level_text, large_fnt), v_label_align - 10),
             level_text,
             font=large_fnt,
             fill=info_text_color,
@@ -3202,7 +3202,7 @@ class Leveler(commands.Cog):
         bank_credits = await bank.get_balance(user)
         credit_txt = f"Overkill"
         draw.text(
-            (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 40),
+            (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 10),
             credit_txt,
             font=large_fnt,
             fill=info_text_color,
