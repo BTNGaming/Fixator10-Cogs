@@ -3199,21 +3199,14 @@ class Leveler(commands.Cog):
             font=large_fnt,
             fill=info_text_color,
         )  # Level
-        footer_text = "{}".format(      await self._find_server_rank(user, server),     board_type,     await self._find_server_exp(user, server))
+         bank_credits = await bank.get_balance(user)
+         credit_txt = f"Overkill"
         draw.text(
-            (await self._center(260, 360, footer_text, large_fnt), v_label_align - 30),
-            footer_text,
+            (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
+            credit_txt,
             font=large_fnt,
             fill=info_text_color,
-        )  
-        # bank_credits = await bank.get_balance(user)
-        # credit_txt = f"Overkill"
-        #draw.text(
-        #    (await self._center(260, 360, credit_txt, large_fnt), v_label_align - 30),
-        #    credit_txt,
-        #    font=large_fnt,
-        #    fill=info_text_color,
-        #)  # Balance
+        )  # Balance
         exp_text = "{}/{}".format(exp_frac, exp_total)
         draw.text(
             (await self._center(80, 360, exp_text, exp_fnt), 19),
