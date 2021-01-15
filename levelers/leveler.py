@@ -88,7 +88,7 @@ class Leveler(commands.Cog):
                     "default": "https://imgur.com/zm9pg9x.jpg",
                 },
                 "rank": {
-                    "default": "https://imgur.com/GsS1wob.jpg",
+                    "default": "https://i.imgur.com/1knAXKB.jpg",
                 },
                 "levelup": {"default": "https://imgur.com/zm9pg9x.jpg"},
             },
