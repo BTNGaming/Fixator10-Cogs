@@ -90,7 +90,7 @@ class Leveler(commands.Cog):
                 "rank": {
                     "default": "https://i.imgur.com/1knAXKB.jpg",
                 },
-                "levelup": {"default": "https://imgur.com/zm9pg9x.jpg"},
+                "levelup": {"1": "https://imgur.com/zm9pg9x.jpg"},
             },
         }
         default_guild = {
@@ -3242,7 +3242,7 @@ class Leveler(commands.Cog):
             return
         # fonts
         font_thin_file = f"{bundled_data_path(self)}/Uni_Sans_Thin.ttf"
-        level_fnt = ImageFont.truetype(font_thin_file, 23)
+        level_fnt = ImageFont.truetype(font_bold_file, 23)
 
         userinfo = await self.db.users.find_one({"user_id": str(user.id)})
 
