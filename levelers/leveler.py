@@ -3688,7 +3688,7 @@ class Leveler(commands.Cog):
     async def _level_exp(self, total_exp):
         remaining_xp = int(total_exp)
         level = 0
-        while remaining_xp >= level._level_exp(level):
+        while remaining_xp >= level._required_exp(level):
             total_exp -= _find_level(level)
             level += 1
         return level
