@@ -3680,12 +3680,15 @@ class Leveler(commands.Cog):
 
     # calculates required exp for next level
     async def _required_exp(self, level: int):
-        if level < 0:
-            return 0
-        return 150 * level + 50
+        #if level < 0:
+        #    return 0
+        #return 150 * level + 50
+        5 * (level ^ 2) + 50 * level + 100
+    #   5 * (lvl ^ 2) + 50 * lvl + 100
 
     async def _level_exp(self, level: int):
         return level * 50 + 150 * level * (level - 1) // 2
+    #           5 * (lvl ^ 2) + 50 * lvl + 100
 
     async def _find_level(self, total_exp):
         # this is specific to the function above
