@@ -3678,16 +3678,28 @@ class Leveler(commands.Cog):
         start_pos = start + ((dist - width) / 2)
         return int(start_pos)
 
-    # calculates required exp for next level
-    async def _required_exp(self, level: int):
-        if level < 0:
-            return 0
-        return 150 * level + 50
-    #   5 * (lvl ^ 2) + 50 * lvl + 100
+    # Testing with the mee6 system... BTN Custom Coded Style
 
-    async def _level_exp(self, level: int):
+    async def _required_exp(self, level:int):
+        return 5 * (level**2) + 50 * level + 100
+
+    async def _level_exp(self, total_exp):
+        if level < 0:
+            while level:int >= level._level_exp(level)
+            total_exp -= _find_level(level)
+            level += 1
+        return level
+
+    # calculates required exp for next level
+    #async def _required_exp(self, level: int):
+    #    if level < 0:
+    #        return 0
+        #return 150 * level + 50
+    #    5 * (level ^ 2) + 50 * level + 100
+
+    #async def _level_exp(self, level: int):
         #return level * 50 + 150 * level * (level - 1) // 2
-        return 5 * (lvl ^ 2) + 50 * lvl + 100
+        #return 5 * (lvl ^ 2) + 50 * lvl + 100
 
     async def _find_level(self, total_exp):
         # this is specific to the function above
@@ -3699,3 +3711,5 @@ class Leveler(commands.Cog):
                 if ord(unicode_char) in cmap.cmap:
                     return True
         return False
+
+
