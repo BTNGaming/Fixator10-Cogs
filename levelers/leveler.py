@@ -3682,14 +3682,14 @@ class Leveler(commands.Cog):
     async def _required_exp(self, level: int):
         if level < 0:
             return 0
-        return 90 * level + 200
+        return 100 * level + 200
 
     async def _level_exp(self, level: int):
-        return level * 200 + 90 * level * (level - 1) // 2
+        return level * 200 + 100 * level * (level - 1) // 2
 
     async def _find_level(self, total_exp):
         # this is specific to the function above
-        return int((1 / 250) * (9 + math.sqrt(81 + 1112 * total_exp)))
+        return int((1 / 278) * (9 + math.sqrt(81 + 1112 * total_exp)))
 
     async def char_in_font(self, unicode_char, font):
         for cmap in font["cmap"].tables:
