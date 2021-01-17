@@ -3241,7 +3241,9 @@ class Leveler(commands.Cog):
         if not self._db_ready:
             return
         # fonts
-        font_thin_file = f"{bundled_data_path(self)}/Uni_Sans_Thin.ttf"
+
+        font_bold_file = f"{bundled_data_path(self)}/font_bold.ttf"
+        #font_thin_file = f"{bundled_data_path(self)}/Uni_Sans_Thin.ttf"
         level_fnt = ImageFont.truetype(font_bold_file, 23)
 
         userinfo = await self.db.users.find_one({"user_id": str(user.id)})
