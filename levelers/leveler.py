@@ -1343,11 +1343,11 @@ class Leveler(commands.Cog):
             return
 
         # get rid of old level exp
-        old_server_exp = 0
-        for i in range(userinfo["servers"][str(server.id)]["level"]):
-            old_server_exp += await self._required_exp(i)
-        userinfo["total_exp"] -= old_server_exp
-        userinfo["total_exp"] -= userinfo["servers"][str(server.id)]["current_exp"]
+        #old_server_exp = 0
+        #for i in range(userinfo["servers"][str(server.id)]["level"]):
+        #    old_server_exp += await self._required_exp(i)
+        #userinfo["total_exp"] -= old_server_exp
+        #userinfo["total_exp"] -= userinfo["servers"][str(server.id)]["current_exp"]
 
         # add in new exp
         total_exp = await self._level_exp(level)
@@ -2465,11 +2465,11 @@ class Leveler(commands.Cog):
                 userinfo = await self.db.users.find_one({"user_id": str(user.id)})
 
                 # get rid of old level exp
-                old_server_exp = 0
-                async for _i in AsyncIter(range(userinfo["servers"][str(server.id)]["level"])):
-                    old_server_exp += await self._required_exp(_i)
-                userinfo["total_exp"] = old_server_exp
-                userinfo["total_exp"] -= userinfo["servers"][str(server.id)]["current_exp"]
+                #old_server_exp = 0
+                #async for _i in AsyncIter(range(userinfo["servers"][str(server.id)]["level"])):
+                #    old_server_exp += await self._required_exp(_i)
+                #userinfo["total_exp"] = old_server_exp
+                #userinfo["total_exp"] -= userinfo["servers"][str(server.id)]["current_exp"]
 
                 # add in new exp
                 total_exp = await self._level_exp(level)
