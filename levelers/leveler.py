@@ -1353,7 +1353,7 @@ class Leveler(commands.Cog):
         total_exp = await self._level_exp(level)
         userinfo["servers"][str(server.id)]["current_exp"] = 0
         userinfo["servers"][str(server.id)]["level"] = level
-        userinfo["total_exp"] += old_server_exp
+        userinfo["total_exp"] += total_exp
 
         await self.db.users.update_one(
             {"user_id": str(user.id)},
@@ -2468,14 +2468,14 @@ class Leveler(commands.Cog):
                 old_server_exp = 0
                 async for _i in AsyncIter(range(userinfo["servers"][str(server.id)]["level"])):
                     old_server_exp += await self._required_exp(_i)
-                userinfo["total_exp"] -= old_server_exp
+                userinfo["total_exp"] = old_server_exp
                 userinfo["total_exp"] -= userinfo["servers"][str(server.id)]["current_exp"]
 
                 # add in new exp
                 total_exp = await self._level_exp(level)
                 userinfo["servers"][str(server.id)]["current_exp"] = 0
                 userinfo["servers"][str(server.id)]["level"] = level
-                userinfo["total_exp"] += old_server_exp
+                userinfo["total_exp"] += total_exp
 
                 await self.db.users.update_one(
                     {"user_id": str(user.id)},
@@ -3698,7 +3698,7 @@ class Leveler(commands.Cog):
 
     async def _find_level(self, total_exp):
         # this is specific to the function above
-        return int((1 / 278) * (9 + math.sqrt(81 + 9999 * total_exp)))
+        return int((1 / 278) * (9 + math.sqrt(81 + 1112 * total_exp)))
 
     async def char_in_font(self, unicode_char, font):
         for cmap in font["cmap"].tables:
