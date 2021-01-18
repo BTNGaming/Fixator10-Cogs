@@ -3698,7 +3698,7 @@ class Leveler(commands.Cog):
 
     async def _find_level(self, total_exp):
         # this is specific to the function above
-        return int((1 / 278) * (9 + math.sqrt(81 + 1112 * total_exp)))
+        return int((1 / 278) * (9 + math.sqrt(81 + 9999 * total_exp)))
 
     async def char_in_font(self, unicode_char, font):
         for cmap in font["cmap"].tables:
