@@ -90,7 +90,7 @@ class Leveler(commands.Cog):
                 "rank": {
                     "default": "https://i.imgur.com/1knAXKB.jpg",
                 },
-                "levelup": {"1": "https://imgur.com/zm9pg9x.jpg"},
+                "levelup": {"24": "https://i.imgur.com/qJD7Mws.png"},
             },
         }
         default_guild = {
@@ -3080,7 +3080,7 @@ class Leveler(commands.Cog):
                 180,
             )  # increase transparency
         else:
-            exp_color = (140, 140, 140, 230)
+            exp_color = (255, 0, 50, 230)
         draw_overlay.rectangle([(0, 20), (exp_width, 30)], fill=exp_color)  # Exp bar
         draw_overlay.rectangle([(0, 30), (bg_width, 31)], fill=(0, 0, 0, 255))  # Divider
         # draw_overlay.rectangle([(0,35), (bg_width,100)], fill=(230,230,230,0)) # title overlay
