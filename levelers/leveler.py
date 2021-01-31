@@ -1351,7 +1351,7 @@ class Leveler(commands.Cog):
 
         # add in new exp
         total_exp = await self._level_exp(level)
-        userinfo["servers"][str(server.id)]["current_exp"] = old_server_exp
+        userinfo["servers"][str(server.id)]["current_exp"] = 0
         userinfo["servers"][str(server.id)]["level"] = level
         userinfo["total_exp"] += total_exp
 
@@ -2473,7 +2473,7 @@ class Leveler(commands.Cog):
 
                 # add in new exp
                 total_exp = await self._level_exp(level)
-                userinfo["servers"][str(server.id)]["current_exp"] = old_server_exp
+                userinfo["servers"][str(server.id)]["current_exp"] = 0
                 userinfo["servers"][str(server.id)]["level"] = level
                 userinfo["total_exp"] += total_exp
 
